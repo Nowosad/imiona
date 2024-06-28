@@ -1,5 +1,8 @@
 library(shiny)
 library(ggplot2)
+
+load(url("https://raw.githubusercontent.com/Nowosad/imiona/main/babynamespl.RData"))
+
 # library(dplyr)
 # load("namer/babynamespl.rda")
 
@@ -44,7 +47,8 @@ ui <- fluidPage(
 server <- function(input, output) {
 
 
-  load(url("https://github.com/Nowosad/imiona/raw/main/babynamespl.rda"))
+
+           # https://github.com/Nowosad/imiona/raw/main/babynamespl.rda"))
   # # babynamespl = read.csv("https://github.com/Nowosad/imiona/raw/main/babynames.csv")
   #
   # babynamespl = babynamespl[1:100,]
