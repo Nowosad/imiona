@@ -31,7 +31,7 @@ ui <- fluidPage(
             selectizeInput(inputId = "imie",
                            label = "Imię",
                            choices = babynamespl$Imię,
-                           selected = "JAKUB",
+                           selected = c("EWA", "DAWID"),
                            multiple = TRUE,
                            options = NULL)
         ),
