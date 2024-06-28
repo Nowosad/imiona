@@ -1,4 +1,6 @@
-
+library(shiny)
+library(ggplot2)
+# library(dplyr)
 # load("namer/babynamespl.rda")
 
 # babynamespl = structure(list(Rok = c(2000, 2000, 2000, 2000, 2000, 2000, 2000,
@@ -40,18 +42,16 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-  library(shiny)
-  library(ggplot2)
-  library(dplyr)
+
 
   load(url("https://github.com/Nowosad/imiona/raw/main/babynamespl.rda"))
-  # babynamespl = read.csv("https://github.com/Nowosad/imiona/raw/main/babynames.csv")
-
-  babynamespl = babynamespl[1:100,]
+  # # babynamespl = read.csv("https://github.com/Nowosad/imiona/raw/main/babynames.csv")
+  #
+  # babynamespl = babynamespl[1:100,]
 
     output$distPlot <- renderPlot({
-        ggplot(filter(babynamespl, Imię %in% input$imie),
-               aes(Rok, Liczba, color = Imię)) +
+        ggplot(subset(babynamespl, Imię %in% input$imie),
+               aes(Rok, Liczba, color = Imię, group = Imię)) +
             geom_line() +
             geom_point()
     })
